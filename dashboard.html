@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Material Dashboard 
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="http://cdn.syncfusion.com/16.4.0.42/js/web/ej.web.all.min.js"></script>
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.12/c3.css"
+    rel="stylesheet"
+  />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo">
+        <a href="index.html" class="simple-text logo-normal">
+          Sprint 3
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="nav-item ">
+                <a class="nav-link" href="./index.html">
+                  <i class="material-icons">content_paste</i>
+                  <p>User List</p>
+                </a>
+              </li>
+          <li class="nav-item active  ">
+            <a class="nav-link" href="./dashboard.html">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./user.html">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          
+          <li class="nav-item ">
+            <a class="nav-link" href="/demo-fe/index.html">
+              <i class="material-icons">content_paste</i>
+              <p data-placement="right" title="The Sprint1 demo has features for displaying the team data in a differant fashion, hence keeping the link till we port this functionality to the new demo (i.e. handle team information and team totals).">Sprint1 Demo</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/demo-fe2/index.html">
+              <i class="material-icons">content_paste</i>
+              <p data-placement="right" title="The Sprint2 demo has functioning charts with tooltip legends displaying the file history data. These are not currently ported to the new demo yet.">Sprint2 Demo</p>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <h1><a id="user-name" class="navbar-brand" href="#pablo">Dashboard</a></h1>
+          </div>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <form class="navbar-form">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
+                  <i class="material-icons">dashboard</i>
+                  <p class="d-lg-none d-md-block">
+                    Stats
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">notifications</i>
+                  <span class="notification">5</span>
+                  <p class="d-lg-none d-md-block">
+                    Some Actions
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item bg-info" href="#">Mike John resolved issue #557-221</a>
+                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
+                  <a class="dropdown-item bg-warning" href="#">3 files marked for escalation. </a>
+                  <a class="dropdown-item" href="#">Next Deletion Action Before - 3/4/20 </a>
+                  <a class="dropdown-item" href="#">Another Important Note</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="#">Settings</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Log out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+
+            <div class="navbar-wrapper">
+                <a class="navbar-brand" href="#pablo">Your Stats</a>
+              </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                      <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                          <i class="material-icons">delete_forever</i>
+                        </div>
+                        <p class="card-category">Deleted Files</p>
+                        <h3 class="card-title"><span id="user-fixed-issues"></span></h3>
+                      </div>
+                      <div class="card-footer">
+                        <div class="stats">
+                          <i class="material-icons">local_offer</i> Tracked from StoredIQ
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                        <i class="material-icons">content_copy</i>
+                      </div>
+                      <p class="card-category">Used Files</p>
+                      <h3 class="card-title"><span id="user-total">...</span>
+                        <small>Total</small>
+                      </h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons text-danger">warning</i>
+                        <a href="#pablo">Use Less Space...</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                        <i class="material-icons">file_copy</i>
+                      </div>
+                      <p class="card-category">Total Usage</p>
+                      <h3 class="card-title"><span id="user-total-usage">...</span></h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="card card-stats">
+                    <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                        <i class="fa fa-archive"></i>
+                      </div>
+                      <p class="card-category">Oldest File</p>
+                      <h3 class="card-title">15/Sep/07</h3>
+                    </div>
+                    <div class="card-footer">
+                      <div class="stats">
+                        <i class="material-icons">folder_shared</i> approx 12 years ago
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="navbar-wrapper">
+                  <a class="navbar-brand" href="#pablo">Your Team Stats</a>
+                </div>
+              <div class="row">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="card team-card card-stats">
+                        <div class="card-header card-header-danger card-header-icon">
+                          <div class="card-icon">
+                            <i class="material-icons">delete_forever</i>
+                          </div>
+                          <p class="card-category">Deletion Confirmed</p>
+                          <h3 class="card-title"><span id="team-delete">...</span></h3>
+                        </div>
+                        <div class="card-footer">
+                          <div class="stats">
+                            <i class="material-icons">local_offer</i> 3/15 complete for this week
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card team-card card-stats">
+                      <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                          <i class="material-icons">content_copy</i>
+                        </div>
+                        <p class="card-category">Total Files in Used </p>
+                        <h3 class="card-title"><span id="team-files-used">...</span>
+                          <small></small>
+                        </h3>
+                      </div>
+                      <div class="card-footer">
+                        <div class="stats">
+                          <i class="material-icons text-danger">warning</i>
+                          <a href="#pablo">Use Less Space...</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card team-card card-stats">
+                      <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                          <i class="material-icons">file_copy</i>
+                        </div>
+                        <p class="card-category">Team Totals</p>
+                        <h3 class="card-title"><span id="team-files-total">...</span></h3>
+                      </div>
+                      <div class="card-footer">
+                        <div class="stats">
+                          <i class="material-icons">date_range</i> Last scanned, 48 Hours
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card team-card card-stats">
+                      <div class="card-header card-header-info card-header-icon">
+                        <div class="card-icon">
+                          <i class="fa fa-archive"></i>
+                        </div>
+                        <p class="card-category">Team Escalations</p>
+                        <h3 class="card-title"><span id="team-escalate">...</span></h3>
+                      </div>
+                      <div class="card-footer">
+                        <div class="stats">
+                          <i class="material-icons">folder_shared</i> Just Updated
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+           
+                <div class="navbar-wrapper">
+                    <a class="navbar-brand" href="#pablo">Your Activity </a>
+                  </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-chart">
+                          <div class="card-header card-header-danger">
+                            <div class="ct-chart" id="completedTasksChart"></div>
+                          </div>
+                          <div class="card-body">
+                            <h4 class="card-title">Deletion Progress</h4>
+                            <p class="card-category">Deletion Performance</p>
+                          </div>
+                          <div class="card-footer">
+                            <div class="stats">
+                              <i class="material-icons">access_time</i> Stats Updated 2 days ago
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    <div class="col-md-4">
+                      <div class="card card-chart">
+                        <div class="card-header card-header-warning">
+                          <div class="ct-chart" id="websiteViewsChart"></div>
+                        </div>
+                        <div class="card-body">
+                          <h4 class="card-title">File Totals</h4>
+                          <p class="card-category">Monthly Files Activity</p>
+                        </div>
+                        <div class="card-footer">
+                          <div class="stats">
+                            <i class="material-icons">access_time</i> Stats Updated 2 days ago
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card card-chart">
+                          <div class="card-header card-header-success card-header-success">
+                            <div class="ct-chart" id="dailySalesChart"></div>
+                          </div>
+                          <div class="card-body">
+                            <h4 class="card-title">Deletion History</h4>
+                            <p class="card-category">
+                              <span class="text-success"><i class="fa fa-long-arrow-up"></i> 12% </span> increase in Deletion Activity.</p>
+                          </div>
+                          <div class="card-footer">
+                            <div class="stats">
+                              <i class="material-icons">access_time</i> updated 34 minutes ago
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </div>
+
+
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-header card-header-success card-header-success2">
+                    <div id="pie-chart"></div>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Filter By Security Classifications</h4>
+                  <p class="card-category">
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 15% </span> increase in files detected.</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-header card-header-success card-header-success2">
+                    <div id="chart"></div>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Filter By File Classification</h4>
+                  <p class="card-category">Internal classifications</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> Updated sent 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card card-chart">
+                <div class="card-header card-header-success card-header-success2">
+                    <div id="chart3"></div>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Progress History</h4>
+                  <p class="card-category"> Monthly View</p>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> Generated 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar-wrapper">
+              <a class="navbar-brand" href="#pablo">File List</a>
+            </div>
+          <div class="row">
+              <div class="col-lg-12 col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title">Employees Stats</h4>
+                      <p class="card-category">New employees on 15th September, 2016</p>
+                      <hr>
+                <div class="well">
+                  <div class="button-group ml-4 mt-2 mb-2">
+                    <button
+                      onclick="allClicked()"
+                      type="button"
+                      class="col-2  btn btn-success navbar-btn"
+                    >
+                      All files (<span id="user-total1"></span>)
+                    </button>
+                    <button
+                      onclick="pciClicked()"
+                      type="button"
+                      class="col-2 btn btn-info navbar-btn"
+                    >
+                      PCI files (<span id="pci-total"></span>)
+                    </button>
+                    <button
+                      onclick="piiClicked()"
+                      type="button"
+                      class="col-2 btn btn-info navbar-btn"
+                    >
+                      PII files (<span id="pii-total"></span>)
+                    </button>
+                    <button
+                      onclick="specClicked()"
+                      type="button"
+                      class="col-2 btn btn-info navbar-btn"
+                    >
+                      SPEC files (<span id="spec-total"></span>)
+                    </button>
+                    <button
+                      onclick="retClicked()"
+                      type="button"
+                      class="col-2 btn btn-info navbar-btn"
+                    >
+                      RET files (<span id="ret-total"></span>)
+                    </button>
+                  </div>
+                  <div class="button-group ml-4 mt-2 mb-2 ">
+                      <button
+                      onclick="pubClicked()"
+                      type="button"
+                      class="col-2 btn btn-success btn-sm navbar-btn"
+                    >
+                      PUBLIC (<span id="pub-class-total"></span>)
+                    </button>
+                    <button
+                      onclick="secretClicked()"
+                      type="button"
+                      class="col-2 btn btn-danger btn-sm navbar-btn"
+                    >
+                      SECRET (<span id="sec-class-total"></span>)
+                    </button>
+                    <button
+                      onclick="senClassClicked()"
+                      type="button"
+                      class="col-2 btn btn-danger btn-sm navbar-btn"
+                    >
+                      SENSITIVE CLASSIFIED (<span id="sen-class-total"></span>)
+                    </button>
+                    <button
+                      onclick="ClassClicked()"
+                      type="button"
+                      class="col-2 btn btn-danger btn-sm navbar-btn"
+                    >
+                      Confidential (<span id="cla-class-total"></span>)
+                    </button>
+                    <button
+                      onclick="intClicked()"
+                      type="button"
+                      class="col-2 btn btn-danger btn-sm navbar-btn"
+                    >
+                      INTERNAL (<span id="int-class-total"></span>)
+                    </button>
+                    
+                  </div>
+                </div>
+                    </div>
+                    <div class="card-body table-responsive">
+                      
+<span id="main-file-list"></span>
+
+
+                          
+                        
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-lg-6 col-md-12">
+                    <h4 class="card-title">Notifications Style</h4>
+                    <div class="alert alert-info">
+                      <span>This is a plain notification</span>
+                    </div>
+                    <div class="alert alert-info">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                      </button>
+                      <span>This is a notification with close button.</span>
+                    </div>
+                    <div class="alert alert-info alert-with-icon" data-notify="container">
+                      <i class="material-icons" data-notify="icon">add_alert</i>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                      </button>
+                      <span data-notify="message">This is a notification with close button and icon.</span>
+                    </div>
+                    <div class="alert alert-info alert-with-icon" data-notify="container">
+                      <i class="material-icons" data-notify="icon">add_alert</i>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                      </button>
+                      <span data-notify="message">This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style.</span>
+                    </div>
+                  </div>
+                  
+            <div class="col-lg-6 col-md-12">
+               
+              <div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                      <span class="nav-tabs-title">Tasks:</span>
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" href="#profile" data-toggle="tab">
+                            <i class="material-icons">record_voice_over</i> Delegated
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#messages" data-toggle="tab">
+                            <i class="material-icons">group</i> Escalated
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#settings" data-toggle="tab">
+                            <i class="material-icons">delete_forever</i> Deletions
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                      <table class="table">
+                        <tbody>
+                          
+                          <tr>
+                            <td>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </td>
+                            <td>2 Files marked for Delegation are ready to be Accepted</td>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </td>
+                            <td>1 File Marked for Delegation has been Accpeted by Team Member!
+                            </td>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="messages">
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="" checked>
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </td>
+                            <td>3 Escalated files have been processed 
+                            </td>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="">
+                                  <span class="form-check-sign">
+                                    <span class="check"></span>
+                                  </span>
+                                </label>
+                              </div>
+                            </td>
+                            <td>1 File has been Escalated</td>
+                            <td class="td-actions text-right">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane" id="settings">
+                      <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td>2 Files marked for Deletion ready to be processed</td>
+                                <td class="td-actions text-right">
+                                  <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                    <i class="material-icons">edit</i>
+                                  </button>
+                                  <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                    <i class="material-icons">close</i>
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="">
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td>1 File Marked for Deletion has been Deleted!
+                                </td>
+                                <td class="td-actions text-right">
+                                  <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                    <i class="material-icons">edit</i>
+                                  </button>
+                                  <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                    <i class="material-icons">close</i>
+                                  </button>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <div class="form-check">
+                                    <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="" checked>
+                                      <span class="form-check-sign">
+                                        <span class="check"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>
+                                <td>2 Files Marked as Deleted Still Detected On the File System</td>
+                                <td class="td-actions text-right">
+                                  <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                                    <i class="material-icons">edit</i>
+                                  </button>
+                                  <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                    <i class="material-icons">close</i>
+                                  </button>
+                                </td>
+                              </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">Employees Stats</h4>
+                  <p class="card-category">New employees on 15th September, 2016</p>
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Salary</th>
+                      <th>Country</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>Niger</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>$23,789</td>
+                        <td>Curaçao</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>$56,142</td>
+                        <td>Netherlands</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Philip Chaney</td>
+                        <td>$38,735</td>
+                        <td>Korea, South</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div> -->
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+
+          <div class="card-body table-responsive">
+            <h1>File History</h1>
+          <table class="table table-sm table-dark">
+              <thead class="text-primary">
+                  <tr>
+                    <th><b>Action</b></th>
+                    <th>FileName</th>
+                    <th>Security Level</th>
+                    <th>Filter</th>
+                    <th>Path</th>
+                    <th>MD5</th>
+                    <th>FileNote</th>
+                  </tr>
+                </thead>
+                <tbody id="hist-files">
+                 
+
+                </tbody>
+          </table>
+        </div>        
+        
+        <!-- <div class="container-fluid">
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+          </div>
+        </div> -->
+      </footer>
+      <div id="message"></div>
+    </div>
+  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <form>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">MD5 : <span id="file-note-md5"></span></label>
+              <label for="exampleFormControlInput1">File Path : <span id="file-note-path"></span></label><br>
+              <label for="exampleFormControlInput1">Filename : <span id="file-note-name"></span></label><br>
+              <label for="exampleFormControlInput1">Classification : <span id="file-note-class"></span></label><br>
+              <label for="exampleFormControlInput1">Security : <span id="file-note-sec"></span></label><br>
+              <label for="exampleFormControlInput1">Extension : <span id="file-note-ext"></span></label><br>
+              <label for="exampleFormControlInput1">Business Class : <span id="file-note-busclass"></span></label><br>
+              <label for="exampleFormControlInput1">Last Access : <span id="file-note-access"></span></label><br>
+              <label for="exampleFormControlInput1">Email : <span id="file-note-email"></span></label><br>
+              <label for="exampleFormControlInput1">FileSize : <span id="file-note-size"></span></label><br>
+             
+            </div>
+
+            
+             
+            
+              
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Add Note Below</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+            </div>
+            
+            </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="save-note-btn" onclick="addFileNotetoLS(this)" value="" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            <div class="container" id="file-note-history">
+
+            </div>
+          </div>
+        </div>
+      </div>
+       
+  <!-- <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+      <a href="#" data-toggle="dropdown">
+        <i class="fa fa-cog fa-2x"> </i>
+      </a>
+      <ul class="dropdown-menu">
+        <li class="header-title"> Sidebar Filters</li>
+        <li class="adjustments-line">
+          <a href="javascript:void(0)" class="switch-trigger active-color">
+            <div class="badge-colors ml-auto mr-auto">
+              <span class="badge filter badge-purple" data-color="purple"></span>
+              <span class="badge filter badge-azure" data-color="azure"></span>
+              <span class="badge filter badge-green" data-color="green"></span>
+              <span class="badge filter badge-warning" data-color="orange"></span>
+              <span class="badge filter badge-danger" data-color="danger"></span>
+              <span class="badge filter badge-rose active" data-color="rose"></span>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+        </li>
+        <li class="header-title">Images</li>
+        <li class="active">
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-1.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-2.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-3.jpg" alt="">
+          </a>
+        </li>
+        <li>
+          <a class="img-holder switch-trigger" href="javascript:void(0)">
+            <img src="../assets/img/sidebar-4.jpg" alt="">
+          </a>
+        </li>
+        <li class="button-container">
+          <a href="https://www.creative-tim.com/product/material-dashboard" target="_blank" class="btn btn-primary btn-block">Free Download</a>
+        </li>
+         <li class="header-title">Want more components?</li>
+            <li class="button-container">
+                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
+                  Get the pro version
+                </a>
+            </li> 
+        <li class="button-container">
+          <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
+            View Documentation
+          </a>
+        </li>
+        <li class="button-container github-star">
+          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+        </li>
+        <li class="header-title">Thank you for 95 shares!</li>
+        <li class="button-container text-center">
+          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
+          <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
+          <br>
+          <br>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+
+
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Plugin for the momentJs  -->
+  <script src="../assets/js/plugins/moment.min.js"></script>
+  <!--  Plugin for Sweet Alert -->
+  <script src="../assets/js/plugins/sweetalert2.js"></script>
+  <!-- Forms Validations Plugin -->
+  <script src="../assets/js/plugins/jquery.validate.min.js"></script>
+  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+  <script src="../assets/js/plugins/jquery.bootstrap-wizard.js"></script>
+  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="../assets/js/plugins/bootstrap-selectpicker.js"></script>
+  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+  <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="../assets/js/plugins/jquery.dataTables.min.js"></script>
+  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
+  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
+  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+  <script src="../assets/js/plugins/fullcalendar.min.js"></script>
+  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+  <script src="../assets/js/plugins/jquery-jvectormap.js"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../assets/js/plugins/nouislider.min.js"></script>
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="../assets/js/plugins/arrive.min.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="../assets/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="../assets/js/detail3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.8.0/d3.min.js"></script>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.6.12/c3.js"></script>
+
+
+
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+        if (window_width > 767 && fixed_plugin_open == 'Dashboard') {
+          if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
+            $('.fixed-plugin .dropdown').addClass('open');
+          }
+
+        }
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+      md.showNotification('top','right')
+    });
+  </script>
+</body>
+
+</html>
