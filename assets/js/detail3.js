@@ -777,14 +777,14 @@ function numberWithCommas(x) {
 }
 
 function fileNoteSelected(e) {
-    //e.preventDefaults()
-    //console.log("selected", btn.value)
+    
+
+  if(e.id) {
     var MD5id = e.id.substring(4)
-    // console.log("this select", e.id)
-    // console.log("MD5 found ", MD5id)
+   
     var fileInfo = findFileFromStorage(MD5id)
-    // console.log("fileInfo", fileInfo[0])
-    //exampleModalLongTitle
+    
+    
     document.getElementById("exampleModalLongTitle").innerHTML = "File note for : " + MD5id
     document.getElementById("file-note-md5").innerHTML = MD5id
     document.getElementById("file-note-name").innerHTML = fileInfo[0].fileName
@@ -809,11 +809,8 @@ function fileNoteSelected(e) {
     fileNoteHist.innerHTML = tmpTable
 
     $('#exampleModalCenter').modal('show')
-    var temp = `
+  }
     
-       
-`
-
 }
 
 function addFileNotetoLS(anID) {
@@ -822,7 +819,7 @@ function addFileNotetoLS(anID) {
     // console.log("message", elem.value)
    
     var d = new Date();
-    var datetxt = d.getDay() + "/" + d.getMonth()+1 + "/" +d.getFullYear();
+    var datetxt = formatDate(d)   // d.getDay() + "/" + d.getMonth()+1 + "/" +d.getFullYear();
     var badgeElem = document.getElementById( "badge-" + anID.value )
     var elemValue = parseInt(badgeElem.innerHTML)
     // console.log("badgeElem", badgeElem)
@@ -1116,6 +1113,24 @@ function makechart3() {
 
 }
 
+function formatDate(d) {
+  let now = new Date();
+  //let dif = now - d.getTime();
+  let month = parseInt(d.getMonth()) + 1;
+  let day = d.getDate();
+  let hours = d.getHours();
+  let minutes = d.getMinutes();
+ 
+      month = month < 10 ? '0' + month : month;
+      day = day < 10 ? '0' + day : day;
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      return `${day}/${month}/${d.getFullYear()}@${hours}:${minutes}`;
+  
+}
+
+// alert(formatDate(new Date(new Date - 1)));
+
 function changedSelect(e) {
   console.log("selected", e.value)
   console.log("this select", e.id)
@@ -1131,9 +1146,13 @@ function changedSelect(e) {
     console.log("elemHist", elemHist)
     // Add a filenote as well
     var d = new Date();
-    var datetxt = d.getDay() + "/" + d.getMonth()+1 + "/" +d.getFullYear();
+
+    
+    formatDate(d)
+
+    var datetxt = formatDate(d) // d.getDay() + "/" + d.getMonth()+1 + "/" +d.getFullYear();
     var elemValue = parseInt(badgeElem.innerHTML)
-    // console.log("badgeElem", badgeElem)
+    console.log("datetxt", datetxt)
     //var lfileNotedata = findFileNoteFromStorage(anID.value)
     elemValue++
     //console.log("lfileNotedata from storage", lfileNotedata )
