@@ -375,7 +375,7 @@ function makeOwnTeam(teamLeader) {
     //         }
     //     }
     // }
-    // console.log("Own TEAM TREE", obj.rootElements);
+    console.log("Own TEAM TREE", obj.rootElements);
 
 
       //console.log("Possible list", possibleUserList)
@@ -414,8 +414,9 @@ function walkTree (t) {
  
  for( node in t) {
   //  console.log("node", t[node])
-  //  console.log("node name", t[node].firstName + " " + t[node].lastName)
-   if (t[node].children) {
+  console.log("node name", t[node].firstName + " " + t[node].lastName)
+  console.log("node name", t[node].firstName + " " + t[node].lastName)
+    if (t[node].children) {
     //  console.log("GOt CHildren: t[node].children.length: ", t[node].children)
      walkTree(t[node].children)
     //  if (t[node].children.length > 0) {
@@ -424,7 +425,7 @@ function walkTree (t) {
 
     //    //}
     //  } 
-      //  console.log("In Walktree", t)
+    console.log("In Walktree", t)
 
      
    }
@@ -731,13 +732,13 @@ function makeFileTable(fileList) {
     <tbody >`;
 
     table += fileList.map( e => `
-      <tr id="row-${e.MD5}" onchange="changedSelect(this)">
+      <tr id="row-${e.MD5}">
         <td>
         <select id="${e.MD5}" onchange="changedSelect(this)" class="btn btn-primary dropdown-toggle">
         <option value="#ccc" style="background-color: #ccc;"><i class="fa fa-file"></i>please select</option>
         <option value="lightgreen" style="background-color: lightgreen"><i class="fa fa-file"></i>No Action</option>
         <option value="lightblue" style="background-color: lightblue"><i class="fa fa-file"></i>Moved</option>
-        <option value="#f5ca8f" style="background-color: #f5ca8f"><i class="fa fa-file"></i>Archived</option>
+        <option value="fuchsia" style="background-color: fuchsia"><i class="fa fa-file"></i>Archived</option>
         <option value="lightpink" style="background-color: lightpink"><i class="fa fa-file"></i>Lost/unknown</option>
       </select>
       </td>
@@ -1140,10 +1141,14 @@ function changedSelect(e) {
   setTimeout(function(){ 
     var elemRow = document.getElementById("row-" + e.id)
     var badgeElem = document.getElementById( "badge-" + e.id )
+    var dropDown = document.getElementById(e.id)
     var elemHist = document.getElementById("hist-files")
     // var elemRow = document.getElementById("row-" + e.id)
+
+    //jQuery("row-" + e.id).detach().appendTo('#hist-files')
     console.log("elemRow", elemRow)
     console.log("elemHist", elemHist)
+    console.log("badgeElem", badgeElem)
     // Add a filenote as well
     var d = new Date();
 
@@ -1151,55 +1156,83 @@ function changedSelect(e) {
     formatDate(d)
 
     var datetxt = formatDate(d) // d.getDay() + "/" + d.getMonth()+1 + "/" +d.getFullYear();
-    var elemValue = parseInt(badgeElem.innerHTML)
+    var elemValue = badgeElem ? parseInt(badgeElem.innerHTML) : 0
     console.log("datetxt", datetxt)
     //var lfileNotedata = findFileNoteFromStorage(anID.value)
+    
     elemValue++
+    
+    
+
     //console.log("lfileNotedata from storage", lfileNotedata )
     // console.log("fileNotedata from storage", fileNotedata )
       let message = ""
+      let colour = ""
 
-      switch (e.value) {
-
-      }
+      
 
       switch(e.value) {
         case 'lightblue':
           // code block
+          colour = 'lightblue'
           message = "Action Taken - File Moved "
           break;
         case 'lightpink':
           // code block
+          colour = 'lightpink'
           message = "Action Taken - File Lost "
           break;
         case 'lightgreen':
           // code block
+          colour = 'lightgreen'
           message = "No Action Taken - No Action Required "
           break;
-        case '#f5ca8f':
+        case 'fuchsia':
           // code block
+          colour = 'fuchsia'
           message = "Action Taken - File Archived "
           break;
-        default:
-        message = "UNKNOWN - Action Taken - File action unknown "
-      }
+          default:
+          message = "UNKNOWN - Action Taken - File action unknown "
+        }
+        
+        
+        fileNotedata.push({ date: datetxt, ID: e.id, note: message })
+        
+        localStorage.setItem("demofe3-filenotes", JSON.stringify(fileNotedata))
+        $('#exampleModalCenter').modal('hide')
+        
+        
+        var elm = elemRow ? elemRow.innerHTML : null 
+        if ( elemHist && elemRow ) elemHist.innerHTML += elm 
+        if ( elemRow ) elemRow.innerHTML = ""
+        
+        var colChange = document.getElementById(e.id)
+        
+        console.log("ColChange",colChange) 
+        
+        
+        
+        
+        
+        // now format the new entry 
+        console.log("Event commplete", elemHist)
+        
+        
+        console.log("After copy - the new element", document.getElementById(e.id) )
+        
+        document.getElementById(e.id).classList.remove("btn-primary");
+        document.getElementById(e.id).classList.add(colour.toString());
+        //document.getElementById(e.id).innerHTML = "FRED"
+        elemRow.style.color = colour.toString()
+        
+        
+        // const textToFind = 'Google';
+    const dd = document.getElementById(e.id)
+   dd.selectedIndex = [...dd.options].findIndex (option => option.value === colour);
+
 
     
-      fileNotedata.push({ date: datetxt, ID: e.id, note: message })
-    
-    localStorage.setItem("demofe3-filenotes", JSON.stringify(fileNotedata))
-    $('#exampleModalCenter').modal('hide')
-    badgeElem.innerHTML = elemValue
-    var elm = elemRow ? elemRow.innerHTML : null 
-    if ( elemHist && elemRow ) elemHist.innerHTML += elm 
-    if ( elemRow ) elemRow.innerHTML = ""
-
-
-    // now format the new entry 
-    console.log("Event commplete", elemHist)
-    
-
-    console.log("After copy - the new element", document.getElementById(e.id) )
 
     
 
